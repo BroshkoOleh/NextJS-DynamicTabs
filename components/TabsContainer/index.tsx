@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./TabsContainer.module.scss";
 import TabItem from "../../components/TabItem";
 
-interface Tab {
+// Експортуємо інтерфейс Tab
+export interface Tab {
   id: string;
   title: string;
   icon: string;
@@ -91,8 +92,8 @@ export default function TabsContainer({
   const [visibleTabs, setVisibleTabs] = useState<Tab[]>(tabs);
   const [hiddenTabs, setHiddenTabs] = useState<Tab[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const DROPDOWN_WIDTH = 36; // Ширина DropdownMenu
-  const GAP_BETWEEN = 8; // Відступ між TabsContainer і DropdownMenu
+  const DROPDOWN_WIDTH = 36;
+  const GAP_BETWEEN = 8;
 
   const updateVisibleTabs = () => {
     if (!containerRef.current) return;
@@ -107,14 +108,12 @@ export default function TabsContainer({
 
     tabs.forEach((tab) => {
       const tabElement = container.querySelector(`[data-tab-id="${tab.id}"]`) as HTMLElement;
-      if (tabElement) {
-        const tabWidth = tabElement.offsetWidth || 0;
-        if (totalWidth + tabWidth <= availableWidth) {
-          totalWidth += tabWidth;
-          newVisibleTabs.push(tab);
-        } else {
-          newHiddenTabs.push(tab);
-        }
+      const tabWidth = tabElement ? tabElement.offsetWidth || 0 : 0;
+      if (totalWidth + tabWidth <= availableWidth) {
+        totalWidth += tabWidth;
+        newVisibleTabs.push(tab);
+      } else {
+        newHiddenTabs.push(tab);
       }
     });
 
@@ -138,11 +137,7 @@ export default function TabsContainer({
   return (
     <div className={styles.tabsContainer} ref={containerRef}>
       {tabs.map((tab) => (
-        <div
-          key={tab.id}
-          data-tab-id={tab.id}
-          style={{ display: visibleTabs.includes(tab) ? "block" : "none" }}
-        >
+        <div key={tab.id} data-tab-id={tab.id}>
           <TabItem tab={tab} />
         </div>
       ))}

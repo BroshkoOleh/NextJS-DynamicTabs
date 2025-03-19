@@ -1,10 +1,4 @@
 .dropdownContainer {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  width: 36px;
 }
 
 .square {
@@ -12,6 +6,7 @@
   height: 48px;
   background-color: #4690e2;
   cursor: pointer;
+  position: relative;
 
   &::before {
     content: "";
