@@ -34,6 +34,7 @@ header {
   top: 0;
   z-index: 1000;
   max-width: 100%;
+  gap: 8px; /* Додаємо проміжок між TabsContainer і DropdownMenu */
 }
 
 main {

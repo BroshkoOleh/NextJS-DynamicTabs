@@ -1,4 +1,5 @@
 .dropdownContainer {
+  flex-shrink: 0; /* Не дозволяє dropdown стискатися */
 }
 
 .square {
