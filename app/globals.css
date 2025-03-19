@@ -23,6 +23,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+header {
+  padding: 10px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between; /* Розподіл між TabsContainer і DropdownMenu */
+  align-items: center;
+  gap: 8px; /* Мінімальний відступ між елементами */
+  max-width: 100%;
+}
+
+main {
+  padding: 20px;
+  min-height: calc(100vh - 60px);
+}
 
 * {
   box-sizing: border-box;
