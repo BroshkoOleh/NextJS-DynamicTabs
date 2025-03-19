@@ -1,16 +1,14 @@
 .tabsContainer {
   display: flex;
-  flex-wrap: nowrap; /* Таби в один ряд */
-  overflow: hidden; /* Приховуємо таби, які не поміщаються */
+  overflow-x: hidden;
   gap: 8px;
   padding: 8px;
   background-color: #f5f5f5;
   border-radius: 4px;
   flex-grow: 1;
-  max-width: calc(100% - 44px); /* Залишаємо місце для DropdownMenu */
-  position: relative;
+  max-width: calc(100% - 44px);
 
-  .tabWrapper {
-    flex-shrink: 0; /* Забезпечуємо, що таби не стискаються */
+  & > div {
+    flex-shrink: 0;
   }
 }
